@@ -23,7 +23,7 @@ module.exports.add = async (req, res) => {
 		if (COMPANY) {
 			return res.status(200).json({
 				status: "error",
-				message: "Interview Already Exists 🤷‍♂️",
+				message: "Interview Already Exists",
 			});
 		}
 
@@ -65,7 +65,7 @@ module.exports.deleteInterview = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -83,24 +83,19 @@ module.exports.deleteInterview = async (req, res) => {
 		if (!company) {
 			return res.status(200).json({
 				status: "error",
-				message: "Company Not Found 🤷‍♂️",
+				message: "Company Not Found",
 			});
 		}
 
 		//Update the company & delete the interview slot
 		company.interviews.pull(interview._id);
 		await company.save();
-		await interview.remove();
-		// OR
-		// let index = company.interviews.indexOf(interview._id);
-		// company.interviews.splice(index, 1);
-		// await company.save();
-		// await interview.remove();
+		await interview.deleteOne();
 
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Empty Interview Slot Deleted Successfully 🎊 🥳",
+			message: "Empty Interview Slot Deleted Successfully",
 		});
 	} catch (error) {
 		console.log(error);
@@ -125,7 +120,7 @@ module.exports.createInterview = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -134,7 +129,7 @@ module.exports.createInterview = async (req, res) => {
 		if (!company) {
 			return res.status(200).json({
 				status: "error",
-				message: "Company Not Found 🤷‍♂️",
+				message: "Company Not Found",
 			});
 		}
 
@@ -143,7 +138,7 @@ module.exports.createInterview = async (req, res) => {
 		if (students.length === 0) {
 			return res.status(200).json({
 				status: "error",
-				message: "No Students Found 🤷‍♂️",
+				message: "No Students Found",
 			});
 		}
 
@@ -152,7 +147,7 @@ module.exports.createInterview = async (req, res) => {
 		if (interviews.length >= students.length) {
 			return res.status(200).json({
 				status: "error",
-				message: "Please create more students to add 🤷‍♂️",
+				message: "Please create more students to add",
 			});
 		}
 
@@ -164,7 +159,7 @@ module.exports.createInterview = async (req, res) => {
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Empty Interview Slot Created Successfully 🎊 🥳",
+			message: "Empty Interview Slot Created Successfully",
 			interview: interview,
 			company: company,
 			students: students,
@@ -192,7 +187,7 @@ module.exports.delete = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -201,7 +196,7 @@ module.exports.delete = async (req, res) => {
 		if (!company) {
 			return res.status(200).json({
 				status: "error",
-				message: "Company Not Found 🤷‍♂️",
+				message: "Company Not Found",
 			});
 		}
 
@@ -209,10 +204,10 @@ module.exports.delete = async (req, res) => {
 		let interviews = await Interview.find({ company: company._id });
 		//If the interview slots are not found
 		if (interviews.length === 0) {
-			await company.remove();
+			await company.deleteOne();
 			return res.status(200).json({
 				status: "success",
-				message: "Company Visit Cancelled Successfully 🎊 🥳",
+				message: "Company Visit Cancelled Successfully",
 				students: [],
 				id: req.params.company,
 			});
@@ -231,11 +226,11 @@ module.exports.delete = async (req, res) => {
 				{ $pull: { interviews: { $in: interviews } } }
 			);
 			await Interview.deleteMany({ company: company._id });
-			await company.remove();
+			await company.deleteOne();
 			//Send the response
 			return res.status(200).json({
 				status: "success",
-				message: "Company Visit Cancelled Successfully 🎊 🥳",
+				message: "Company Visit Cancelled Successfully",
 				students: [],
 				id: req.params.company,
 			});
@@ -283,7 +278,7 @@ module.exports.delete = async (req, res) => {
 		await Result.deleteMany({ company: company._id });
 
 		//Delete the company
-		await company.remove();
+		await company.deleteOne();
 
 		//Find the students not in that company
 		let stud = await Student.find({
@@ -316,7 +311,7 @@ module.exports.delete = async (req, res) => {
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Company Visit Cancelled Successfully 🎊 🥳",
+			message: "Company Visit Cancelled Successfully",
 			students: students,
 			id: req.params.company,
 		});
@@ -344,7 +339,7 @@ module.exports.addStudent = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -354,7 +349,7 @@ module.exports.addStudent = async (req, res) => {
 		if (!student) {
 			return res.status(200).json({
 				status: "error",
-				message: "Student Not Found 🤷‍♂️",
+				message: "Student Not Found",
 			});
 		}
 
@@ -363,7 +358,7 @@ module.exports.addStudent = async (req, res) => {
 		if (!interview) {
 			return res.status(200).json({
 				status: "error",
-				message: "Interview Not Found 🤷‍♂️",
+				message: "Interview Not Found",
 			});
 		}
 
@@ -375,7 +370,7 @@ module.exports.addStudent = async (req, res) => {
 		if (RESULT) {
 			return res.status(200).json({
 				status: "error",
-				message: "Student Already Added to the Interview 🤷‍♂️",
+				message: "Student Already Added to the Interview",
 			});
 		}
 		//If the result is not found then create a new result
@@ -420,7 +415,7 @@ module.exports.addStudent = async (req, res) => {
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Student Added to the Interview List Successfully 🎊 🥳",
+			message: "Student Added to the Interview List Successfully",
 			student: student,
 			interview: interview,
 			students: students,
@@ -450,7 +445,7 @@ module.exports.editStudent = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -460,7 +455,7 @@ module.exports.editStudent = async (req, res) => {
 		if (!interview) {
 			return res.status(200).json({
 				status: "error",
-				message: "Interview Not Found 🤷‍♂️",
+				message: "Interview Not Found",
 			});
 		}
 
@@ -471,7 +466,7 @@ module.exports.editStudent = async (req, res) => {
 		if (!student) {
 			return res.status(200).json({
 				status: "error",
-				message: "Student Not Found 🤷‍♂️",
+				message: "Student Not Found",
 			});
 		}
 
@@ -484,7 +479,7 @@ module.exports.editStudent = async (req, res) => {
 		if (!RESULT) {
 			return res.status(200).json({
 				status: "error",
-				message: "Student Not Found in the Interview List 🤷‍♂️",
+				message: "Student Not Found in the Interview List",
 			});
 		}
 
@@ -530,7 +525,7 @@ module.exports.editStudent = async (req, res) => {
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Student Updated Successfully 🎊 🥳",
+			message: "Student Updated Successfully",
 			student: student,
 			interview: interview,
 			students: students,
@@ -560,7 +555,7 @@ module.exports.deleteStudent = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -571,7 +566,7 @@ module.exports.deleteStudent = async (req, res) => {
 		if (!interview) {
 			return res.status(200).json({
 				status: "error",
-				message: "Interview Not Found 🤷‍♂️",
+				message: "Interview Not Found",
 			});
 		}
 
@@ -580,7 +575,7 @@ module.exports.deleteStudent = async (req, res) => {
 		if (!result) {
 			return res.status(200).json({
 				status: "error",
-				message: "Result Not Found 🤷‍♂️",
+				message: "Result Not Found",
 			});
 		}
 
@@ -591,7 +586,7 @@ module.exports.deleteStudent = async (req, res) => {
 		if (!student) {
 			return res.status(200).json({
 				status: "error",
-				message: "Student Not Found 🤷‍♂️",
+				message: "Student Not Found",
 			});
 		}
 
@@ -600,7 +595,7 @@ module.exports.deleteStudent = async (req, res) => {
 		if (!company) {
 			return res.status(200).json({
 				status: "error",
-				message: "Company Not Found 🤷‍♂️",
+				message: "Company Not Found",
 			});
 		}
 
@@ -612,8 +607,8 @@ module.exports.deleteStudent = async (req, res) => {
 		await company.save();
 		company.interviews.pull(interview._id);
 		await company.save();
-		await interview.remove();
-		await result.remove();
+		await interview.deleteOne();
+		await result.deleteOne();
 
 		let RESULTS = await Result.find({ student: student._id });
 		//If there are no results then mark the student not placed
@@ -652,7 +647,7 @@ module.exports.deleteStudent = async (req, res) => {
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Student Deleted from the Interview List Successfully 🎊 🥳",
+			message: "Student Deleted from the Interview List Successfully",
 			student: student,
 			company: COMPANY,
 			students: students,

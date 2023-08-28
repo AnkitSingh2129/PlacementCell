@@ -111,7 +111,7 @@ module.exports.homepage = async (req, res) => {
 		console.log(error);
 	}
 	return res.render("home", {
-		title: "Login 👋",
+		title: "Login",
 	});
 };
 
@@ -120,7 +120,7 @@ module.exports.signup = (req, res) => {
 	if (req.isAuthenticated()) return res.redirect("/");
 
 	return res.render("signup", {
-		title: "Sign Up 📝",
+		title: "Sign Up",
 	});
 };
 

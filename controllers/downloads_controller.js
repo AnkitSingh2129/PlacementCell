@@ -105,7 +105,7 @@ module.exports.downloadReport = async function (req, res) {
 
 		//If the Students are not found
 		if (students.length === 0) {
-			req.flash("error", "Please Add Some Students First 🤷‍♂️");
+			req.flash("error", "Please Add Some Students First");
 			return res.redirect("back");
 		}
 		//If the Companies are not found

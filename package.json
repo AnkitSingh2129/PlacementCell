@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "prod_start": "node index.js",
-    "dev_start": "nodemon index.js"
+    "dev_start": "nodemon index.js",
+    "sass:compile": "node-sass assets/scss -o assets/css"
   },
   "author": "Ankit singh",
   "license": "ISC",
@@ -37,7 +38,6 @@
     "mongoose": "^7.4.5",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
-    "node-sass": "^9.0.0",
     "nodemon": "^3.0.1",
     "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.6.0",
@@ -47,6 +47,7 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "node-sass": "^9.0.0"
   }
 }

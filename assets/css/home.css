@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: 1px 5px 5px 2px rgba(0, 0, 0, 0.5);
-    background: #4B0082;
+    background: rgba(255, 233, 174, 0.8);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 10px;
@@ -139,7 +139,7 @@
   .homepage .banner {
     margin-top: 7rem;
     margin-bottom: 2rem;
-    background-color: #4B0082;
+    background-color: #1d1160;
     border-radius: 10px;
     padding: 7px;
     word-spacing: 0.2rem; }
@@ -182,7 +182,7 @@
       .homepage .dashboard .students form,
       .homepage .dashboard .interviews form {
         width: 100%;
-        background-color: #4B0082;
+        background-color: #720e9e;
         border-radius: 10px;
         padding: 10px;
         display: flex;
@@ -197,7 +197,7 @@
         .homepage .dashboard .interviews form h4 {
           font-size: 1.5rem;
           font-weight: 700;
-          color: var(--logo-color);
+          color: #fff;
           margin: 5px 0;
           opacity: 0.8;
           text-align: center;
@@ -220,7 +220,7 @@
           .homepage .dashboard .interviews form .form-group label {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--logo-color); }
+            color: #fff; }
           .homepage .dashboard .students form .form-group input,
           .homepage .dashboard .students form .form-group select,
           .homepage .dashboard .interviews form .form-group input,
@@ -262,7 +262,7 @@
           padding: 0.5rem 1rem;
           font-size: 1rem;
           font-weight: 700;
-          color: var(--accent-color);
+          color: #4B0082;
           background-color: var(--logo-color);
           border-radius: 10px;
           cursor: pointer;
@@ -283,7 +283,7 @@
         margin-top: 1rem;
         opacity: 0.8;
         text-align: center;
-        background-color: #4B0082;
+        background-color: #1d1160;
         border-radius: 10px;
         padding: 7px;
         word-spacing: 0.2rem; }
@@ -305,7 +305,7 @@
               font-size: 1.3rem;
               font-weight: 700;
               font-family: var(--font-family);
-              color: var(--logo-color);
+              color: #555;
               word-break: break-all; }
               .homepage .dashboard .students .accordion .accordion-item h2 button:focus,
               .homepage .dashboard .interviews .accordion .accordion-item h2 button:focus {
@@ -339,7 +339,7 @@
               .homepage .dashboard .students .accordion .accordion-item .accordion-body .interview-data p,
               .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .interview-data p {
                 padding: 0 1rem;
-                color: var(--logo-color);
+                color: #fff;
                 margin: 0.5rem auto;
                 font-size: 1.2rem;
                 font-weight: 500;
@@ -356,6 +356,7 @@
                 top: 5%;
                 right: 1%;
                 font-size: 1.25rem;
+                color: #fff;
                 cursor: pointer;
                 transition: all 0.15s ease-in-out; }
                 @media screen and (max-width: 330px) {
@@ -365,7 +366,7 @@
                     top: 15%; } }
                 .homepage .dashboard .students .accordion .accordion-item .accordion-body .interview-data .fa-trash:hover,
                 .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .interview-data .fa-trash:hover {
-                  color: #21b416; }
+                  color: #EF0107; }
             .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list,
             .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list {
               display: flex;
@@ -378,14 +379,14 @@
               .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list h5 {
                 font-size: 1.4rem;
                 font-weight: 700;
-                color: var(--logo-color);
+                color: #fff;
                 margin: 0.5rem auto;
                 text-align: center; }
               .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list + p,
               .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list + p {
                 font-size: 2rem;
                 font-weight: 600;
-                color: var(--logo-color);
+                color: #fff;
                 margin: 0.5rem auto;
                 text-align: center; }
                 .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list + p i,
@@ -394,7 +395,7 @@
                   cursor: pointer; }
                   .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list + p i:hover,
                   .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list + p i:hover {
-                    color: #21b416; }
+                    color: #1d1160; }
               .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list form,
               .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list form {
                 width: 100%;
@@ -430,7 +431,7 @@
                     .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list form .student .fixed p,
                     .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list form .student .fixed p {
                       font-size: 1.2rem;
-                      color: var(--logo-color);
+                      color: #fff;
                       text-align: center;
                       margin: 0;
                       text-transform: capitalize; }
@@ -458,16 +459,16 @@
                     min-height: 40px; }
                     .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list form .student button.edit-student-interview,
                     .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list form .student button.edit-student-interview {
-                      background-color: #8eec8e;
+                      background-color: #17B169;
                       color: var(--logo-color);
                       margin-top: 1rem; }
                     .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list form .student button.delete-student-interview,
                     .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list form .student button.delete-student-interview {
-                      background-color: #ec8e8e;
+                      background-color: #EF0107;
                       color: var(--logo-color); }
                     .homepage .dashboard .students .accordion .accordion-item .accordion-body .students-list form .student button.delete-interview-slot,
                     .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .students-list form .student button.delete-interview-slot {
-                      background-color: #ec8e8e;
+                      background-color: #EF0107;
                       color: var(--logo-color); }
             .homepage .dashboard .students .accordion .accordion-item .accordion-body .student-data,
             .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .student-data {
@@ -475,7 +476,7 @@
               .homepage .dashboard .students .accordion .accordion-item .accordion-body .student-data p,
               .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .student-data p {
                 padding: 0 1rem;
-                color: var(--logo-color);
+                color: #fff;
                 margin: 0.5rem auto;
                 font-size: 1.1rem;
                 font-weight: 500;
@@ -498,7 +499,7 @@
                 .homepage .dashboard .interviews .accordion .accordion-item .accordion-body .student-interviews table caption {
                   font-size: 1.5rem;
                   font-weight: 700;
-                  color: var(--logo-color);
+                  color: #fff;
                   margin: 1rem auto;
                   opacity: 0.8;
                   text-align: center;
@@ -519,7 +520,7 @@
               font-weight: 600;
               color: var(--logo-color);
               font-weight: 700;
-              background-color: #ec8e8e;
+              background-color: #EF0107;
               border-radius: 10px;
               cursor: pointer;
               box-shadow: none;
@@ -545,7 +546,7 @@
   background-color: transparent; }
 
 .accordion-collapse {
-  background-color: rgba(255, 245, 219, 0.85); }
+  background-color: #720e9e; }
 
 .accordion-header,
 .accordion-button {

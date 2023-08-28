@@ -263,7 +263,7 @@ module.exports.add = async (req, res) => {
 		//Send the response
 		return res.status(200).json({
 			status: "success",
-			message: "Student Created Successfully 🎊 🥳",
+			message: "Student Created Successfully",
 			student: obj,
 		});
 	} catch (error) {
@@ -289,7 +289,7 @@ module.exports.delete = async (req, res) => {
 			return res.status(200).json({
 				status: "error",
 				message:
-					"Something Went Wrong with your Browser. Please Refresh the Page 🤷‍♂️",
+					"Something Went Wrong with your Browser. Please Refresh the Page",
 			});
 		}
 
@@ -298,7 +298,7 @@ module.exports.delete = async (req, res) => {
 		if (!student) {
 			return res.status(404).json({
 				status: "error",
-				message: "Student Not Found 🤷‍♂️",
+				message: "Student Not Found",
 				error: "Not Found",
 			});
 		}
@@ -320,7 +320,7 @@ module.exports.delete = async (req, res) => {
 				await course.save();
 			}
 			//Delete Score
-			await score.remove();
+			await Score.deleteOne({ _id: score._id });
 			//Updating Enrolments List for the above updated Batch and Course
 			let enrolment = await Enrolment.findOne({
 				batch: batch._id,
@@ -364,10 +364,10 @@ module.exports.delete = async (req, res) => {
 				course.enrolments.pull(enrolment);
 				await course.save();
 				//Delete Enrolment
-				await enrolment.remove();
+				await enrolment.deleteOne();
 			}
 			//Delete Batch
-			await batch.remove();
+			await batch.deleteOne();
 		}
 
 		//Delete the Interviews
@@ -387,17 +387,17 @@ module.exports.delete = async (req, res) => {
 		let interviewIds = [];
 		//Delete the Results
 		for (let result of results) {
-			await result.remove();
+			await result.deleteOne();
 		}
 		//Delete the Interviews
 		for (let interview of interviews) {
 			interviewIds.push(interview.id);
-			await interview.remove();
+			await interview.deleteOne();
 		}
 
 		//Deleting the Student
 		let studentID = student.id;
-		await student.remove();
+		await student.deleteOne();
 
 		//If there are no students in the database
 		let students = await Student.find({});
