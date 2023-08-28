@@ -72,7 +72,7 @@ app.use(express.json());
 //Middleware - Cookie Parser for accessing & parsing the cookies
 app.use(cookieParser());
 //Middleware - Express App uses Static Files in the Assets Folder
-app.use(express.static('./assets));
+app.use(express.static('./assets'));
 //Middleware - Make the '/storage' path available to the browser
 app.use("/storage", express.static(__dirname + "/storage"));
 //Middleware - Make the '/uploads' path available to the browser
