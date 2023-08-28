@@ -1,0 +1,52 @@
+.jobPortal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: auto; }
+  .jobPortal .jobPage {
+    margin-top: 7rem;
+    padding: 7px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem; }
+    .jobPortal .jobPage .card {
+      border-radius: 10px;
+      background-color: #E6E6FA;
+      min-width: 320px;
+      min-height: 320px;
+      transition: all 0.25s ease-in-out; }
+      @media screen and (max-width: 400px) {
+        .jobPortal .jobPage .card {
+          min-width: 280px; } }
+      .jobPortal .jobPage .card .card-header {
+        text-align: center; }
+      .jobPortal .jobPage .card .card-body {
+        width: 100%; }
+        .jobPortal .jobPage .card .card-body .card-title {
+          margin-bottom: 1.8rem;
+          text-align: center; }
+        .jobPortal .jobPage .card .card-body .card-text {
+          font-size: 1rem;
+          text-align: center; }
+          .jobPortal .jobPage .card .card-body .card-text span {
+            font-weight: 500; }
+          .jobPortal .jobPage .card .card-body .card-text span:first-child {
+            font-weight: 600; }
+        .jobPortal .jobPage .card .card-body a {
+          margin-top: 1rem;
+          text-decoration: none;
+          font-weight: 500;
+          border-radius: 7px;
+          padding: 0.5rem;
+          border: 1px solid #DDA0DD;
+          transition: all 0.15s ease-in-out; }
+          .jobPortal .jobPage .card .card-body a:hover {
+            border: 1px solid #555;
+            background-color: #DDA0DD;
+            color: #fff; }

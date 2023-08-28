@@ -1,0 +1,67 @@
+//---------Job Portal Container---------
+.jobPortal {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	margin: auto;
+	.jobPage {
+		margin-top: 7rem;
+		padding: 7px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		//---------Job Cards---------
+		.card {
+			border-radius: 10px;
+			background-color: #E6E6FA;
+			min-width: 320px;
+			min-height: 320px;
+			transition: all 0.25s ease-in-out;
+			@media screen and (max-width: 400px) {
+				min-width: 280px;
+			}
+			.card-header {
+				text-align: center;
+			}
+			//---------Card Body---------
+			.card-body {
+				width: 100%;
+				.card-title {
+					margin-bottom: 1.8rem;
+					text-align: center;
+				}
+				.card-text {
+					font-size: 1rem;
+					text-align: center;
+					span {
+						font-weight: 500;
+					}
+					span:first-child {
+						font-weight: 600;
+					}
+				}
+				a {
+					margin-top: 1rem;
+					text-decoration: none;
+					// color: var(--logo-color);3
+					font-weight: 500;
+					border-radius: 7px;
+					padding: 0.5rem;
+					border: 1px solid #DDA0DD;
+					transition: all 0.15s ease-in-out;
+					&:hover {
+						border: 1px solid #555;
+						background-color: #DDA0DD;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
