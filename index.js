@@ -52,9 +52,9 @@ if (env.name == "development") {
 	app.use(
 		sassMiddleware({
 			//Where to look for the SASS files
-			src: path.join(__dirname, './assets', "scss"),
+			src: path.join(__dirname, env.asset_path, "scss"),
 			//Where to put the compiled CSS files
-			dest: path.join(__dirname, './assets', "css"),
+			dest: path.join(__dirname, env.asset_path, "css"),
 			//Reports error.
 			debug: false,
 			//The code should be in a single line - "compressed" or multiple lines - "expanded"
@@ -72,7 +72,7 @@ app.use(express.json());
 //Middleware - Cookie Parser for accessing & parsing the cookies
 app.use(cookieParser());
 //Middleware - Express App uses Static Files in the Assets Folder
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 //Middleware - Make the '/storage' path available to the browser
 app.use("/storage", express.static(__dirname + "/storage"));
 //Middleware - Make the '/uploads' path available to the browser
@@ -97,7 +97,7 @@ app.use(
 		//Cookie Name
 		name: "PlacementCellApplication",
 		//Secret Key for encrypting the session cookie
-		secret: 'Ankit',
+		secret:  env.session_cookie_key,
 		//Don't save the uninitialized session
 		saveUninitialized: false,
 		//Don't re-save the session if it is not modified
@@ -111,7 +111,7 @@ app.use(
 		store: MongoStore.create(
 			{
 				//DB Connection URL
-				mongoUrl: 'mongodb://127.0.0.1:27017/test',
+				mongoUrl: `${env.db}`,
 				//Interacts with the mongoose to connect to the MongoDB
 				mongooseConnection: db,
 				//To auto remove the store

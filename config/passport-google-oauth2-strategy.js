@@ -17,9 +17,9 @@ const { pathFinder } = require("./middleware");
 passport.use(
 	new googleStrategy(
 		{
-			clientID: '908254680822-qb659r6id8uq2cu2g186ft39ad32luj2.apps.googleusercontent.com',
-			clientSecret: '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',
-			callbackURL: 'http://localhost:8000/auth/google/callback',
+			clientID: env.google_client_id,
+			clientSecret: env.google_client_secret,
+			callbackURL: env.google_callback_url,
 		},
 		async (accessToken, refreshToken, profile, done) => {
 			try {
