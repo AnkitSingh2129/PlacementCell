@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "prod_start": "node index.js",
-    "dev_start": "nodemon index.js",
-    "sass:compile": "node-sass assets/scss -o assets/css"
+    "dev_start": "nodemon index.js"
   },
   "author": "Ankit singh",
   "license": "ISC",
